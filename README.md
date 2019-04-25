@@ -1,6 +1,6 @@
 # coc-sh
 
-Docker language server extension using [`bash-language-server`](https://github.com/mads-hartmann/bash-language-server)
+SH language server extension using [`bash-language-server`](https://github.com/mads-hartmann/bash-language-server)
 for [`coc.nvim`](https://github.com/neoclide/coc.nvim).
 
 ## Install
