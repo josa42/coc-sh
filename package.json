@@ -1,0 +1,60 @@
+{
+  "name": "coc-sh",
+  "version": "0.0.0",
+  "description": "sh extension for coc",
+  "author": "josa@gesell.me",
+  "license": "MIT",
+  "main": "lib/extension.js",
+  "publisher": "josa42",
+  "engines": {
+    "coc": "^0.0.65"
+  },
+  "keywords": [
+    "coc.nvim",
+    "languageserver",
+    "bash-language-server",
+    "sh",
+    "bash"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc --watch -p tsconfig.json",
+    "prepare": "yarn clean && yarn build"
+  },
+  "activationEvents": [
+    "onLanguage:sh",
+    "onCommand:sh.version"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "sh",
+      "properties": {
+        "sh.enable": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "sh.version",
+        "title": "Print extension version"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@chemzqm/tsconfig": "^0.0.3",
+    "@chemzqm/tslint-config": "^1.0.17",
+    "@types/node": "^10.14.5",
+    "coc.nvim": "0.0.62",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "bash-language-server": "^1.5.6",
+    "tslib": "^1.9.3"
+  }
+}
