@@ -1,6 +1,6 @@
 import path from 'path'
-import pkgDir from 'pkg-dir'
 import { TransportKind, ExtensionContext, LanguageClient, ServerOptions, commands, workspace, services, LanguageClientOptions } from 'coc.nvim'
+import { pkgBin, commandExists, pkgInstall, pkgUpgrade } from './utils'
 
 export async function activate(context: ExtensionContext): Promise<void> {
 
@@ -8,9 +8,11 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (config.enable === false) {
     return
   }
-
-  const rootDir = await pkgDir(__dirname);
-  const command = path.join(rootDir, 'node_modules', '.bin', 'bash-language-server');
+  const command = config.commandPath || await pkgBin('bash-language-server')
+  workspace.showMessage(`command: ${command}`, 'more')
+  if (!await commandExists(command)) {
+    await pkgInstall('bash-language-server')
+  }
 
   let serverOptions: ServerOptions = {
     command,
@@ -29,6 +31,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
     commands.registerCommand("sh.version", async () => {
       const v = require(path.resolve(__dirname, '..', 'package.json')).version
       workspace.showMessage(`Version: ${v}`, 'more')
+    }),
+    commands.registerCommand("sh.update.bash-language-server", async () => {
+      await pkgUpgrade('bash-language-server')
     })
   )
 }
