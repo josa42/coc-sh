@@ -1,4 +1,5 @@
 import path from 'path'
+import pkgDir from 'pkg-dir'
 import { TransportKind, ExtensionContext, LanguageClient, ServerOptions, commands, workspace, services, LanguageClientOptions } from 'coc.nvim'
 
 export async function activate(context: ExtensionContext): Promise<void> {
@@ -8,7 +9,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
     return
   }
 
-  let command = context.asAbsolutePath(path.join('node_modules', 'bash-language-server', 'bin', 'main.js'));
+  const rootDir = await pkgDir(__dirname);
+  const command = path.join(rootDir, 'node_modules', 'bash-language-server', 'bin', 'main.js');
 
   let serverOptions: ServerOptions = {
     command,
