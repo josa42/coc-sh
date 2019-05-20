@@ -10,7 +10,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   }
 
   const rootDir = await pkgDir(__dirname);
-  const command = path.join(rootDir, 'node_modules', 'bash-language-server', 'bin', 'main.js');
+  const command = path.join(rootDir, 'node_modules', '.bin', 'bash-language-server');
 
   let serverOptions: ServerOptions = {
     command,
