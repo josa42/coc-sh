@@ -9,7 +9,6 @@ export async function activate(context: ExtensionContext): Promise<void> {
     return
   }
   const command = config.commandPath || await pkgBin('bash-language-server')
-  workspace.showMessage(`command: ${command}`, 'more')
   if (!await commandExists(command)) {
     await pkgInstall('bash-language-server')
   }
