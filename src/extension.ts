@@ -13,17 +13,17 @@ export async function activate(context: ExtensionContext): Promise<void> {
     await pkgInstall('bash-language-server')
   }
 
-  let serverOptions: ServerOptions = {
+  const serverOptions: ServerOptions = {
     command,
     args: ['start'],
     transport: TransportKind.stdio
-  };
+  }
 
-  let clientOptions: LanguageClientOptions = {
+  const clientOptions: LanguageClientOptions = {
     documentSelector: ['sh']
-  };
+  }
 
-  const client = new LanguageClient( 'sh', 'bash-language-server', serverOptions, clientOptions);
+  const client = new LanguageClient( 'sh', 'bash-language-server', serverOptions, clientOptions)
 
   context.subscriptions.push(
     services.registLanguageClient(client),
