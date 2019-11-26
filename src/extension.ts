@@ -15,7 +15,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   }
 
   const serverOptions: ServerOptions = {
-    command: (config.commandPath || await pkgBin('bash-language-server')),
+    command: (config.commandPath || await serverBin()),
     args: ['start'],
     transport: TransportKind.stdio
   }
@@ -36,9 +36,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
   )
 }
 
-async function pkgBin(name: string): Promise<string> {
+async function serverBin(): Promise<string> {
   const rootDir = await pkgDir(__dirname)
-  let bin = path.join(rootDir, 'node_modules', '.bin', name)
+  let bin = path.join(rootDir, 'node_modules', 'bash-language-server', 'bin', 'main.js')
   try {
     bin = fs.realpathSync(bin)
   } catch (e) {
