@@ -54,6 +54,12 @@
         "command": "sh.update.bash-language-server",
         "title": "Update bash-language-server"
       }
+    ],
+    "snippets": [
+      {
+        "language": "sh",
+        "path": "./snippets/sh.json"
+      }
     ]
   },
   "devDependencies": {

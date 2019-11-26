@@ -1,0 +1,48 @@
+{
+  "bash": {
+    "prefix": "bash",
+    "body": "#!/bin/bash\n"
+  },
+  "sh": {
+    "prefix": "sh",
+    "body": "#!/bin/sh\n"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if ${1:condition}; then\n\t${2}\nfi"
+  },
+  "elseif": {
+    "prefix": "elseif",
+    "body": "elif ${1:condition}; then\n\t${2}"
+  },
+  "else": {
+    "prefix": "else",
+    "body": "else\n\t${1}"
+  },
+  "for_in": {
+    "prefix": "forin",
+    "body": "for ${1:VAR} in $${2:LIST}; do\n\techo $${1:VAR}\ndone\n",
+    "description": "for x in $y"
+  },
+  "for_i": {
+    "prefix": "fori",
+    "body": "for((${1:i}=0; ${1} < ${2:10}; ${1}++)); do\n\techo $${1}\ndone\n",
+    "description": "for index"
+  },
+  "while": {
+    "prefix": "while",
+    "body": "while ${1:condition}; do\n\t${2}\ndone\n"
+  },
+  "until": {
+    "prefix": "until",
+    "body": "until ${1:condition}; do\n\t${2}\ndone\n"
+  },
+  "function": {
+    "prefix": "function",
+    "body": "function ${1:name}() {\n\t${2}\n}"
+  },
+  "case": {
+    "prefix": "case",
+    "body": "case $${1:var} in\n\t${2:1})\n\t\t${3}\n\t\t;;\nesac\n"
+  }
+}
