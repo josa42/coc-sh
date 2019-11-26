@@ -39,10 +39,20 @@
         "sh.enable": {
           "type": "boolean",
           "default": true
+        },
+        "sh.commandPath": {
+          "type": "string"
+        },
+        "sh.trace.server": {
+          "type": "string",
+          "default": "off",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "description": "Trace level of bash-language-server"
         }
-      },
-      "sh.commandPath": {
-        "type": "string"
       }
     },
     "commands": [
