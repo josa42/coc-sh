@@ -1,6 +1,6 @@
 {
   "name": "coc-sh",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "sh extension for coc",
   "author": "josa@gesell.me",
   "license": "MIT",
