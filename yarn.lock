@@ -214,10 +214,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bash-language-server@~1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/bash-language-server/-/bash-language-server-1.14.0.tgz#3735bad74bf95090168f0e5b68ce7bafc3625dac"
-  integrity sha512-xUeUzpJLLPgdiMiRfEMeZvausL+xdGclQkUSIQR2QV6Y8Ei1tI+FPQQloqg53Q46/ba+yrp2iCb2FMJBLk0QPg==
+bash-language-server@~1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/bash-language-server/-/bash-language-server-1.16.1.tgz#e3896cd280ceee4d6582a3a976b0b7b0beae8d6e"
+  integrity sha512-IS1Ix7qyRq7GTMXqhHUF44yY89i/1Ucn5KFLimEfDpwU1f3GvbV9VnDpqpG6kedJsl2LigEthSnoVlzaOwgt0g==
   dependencies:
     fuzzy-search "^3.2.1"
     glob "^7.1.6"
