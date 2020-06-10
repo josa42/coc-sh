@@ -6,7 +6,11 @@ import { TransportKind, ExtensionContext, LanguageClient, ServerOptions, command
 interface ShConfig {
   enable: boolean
   commandPath: string
+  highlightParsingErrors: boolean
+  explainshellEndpoint: string
+  globPattern: string
 }
+
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration().get('sh', {}) as ShConfig
@@ -14,10 +18,20 @@ export async function activate(context: ExtensionContext): Promise<void> {
     return
   }
 
+  // TODO add config options:
+
   const serverOptions: ServerOptions = {
     command: (config.commandPath || await serverBin()),
     args: ['start'],
-    transport: TransportKind.stdio
+    transport: TransportKind.stdio,
+    options: {
+      env: {
+        // => https://github.com/bash-lsp/bash-language-server/blob/master/server/src/config.ts
+        EXPLAINSHELL_ENDPOINT: config.explainshellEndpoint,
+        GLOB_PATTERN: config.globPattern,
+        HIGHLIGHT_PARSING_ERRORS: config.highlightParsingErrors.toString()
+      }
+    }
   }
 
   const clientOptions: LanguageClientOptions = {
