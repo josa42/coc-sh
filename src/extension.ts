@@ -30,8 +30,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
     services.registLanguageClient(client),
     commands.registerCommand("sh.version", async () => {
       const rootDir = await pkgDir(__dirname)
-      const v = require(path.resolve(rootDir, 'package.json')).version
-      workspace.showMessage(`Version: ${v} [node: ${process.versions.node}]`, 'more')
+      const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir, 'package.json'), 'utf-8'))
+
+      workspace.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
     })
   )
 }
