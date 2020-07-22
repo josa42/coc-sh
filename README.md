@@ -1,6 +1,6 @@
 # coc-sh
 
-SH language server extension using [`bash-language-server`](https://github.com/mads-hartmann/bash-language-server)
+SH language server extension using [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
 for [`coc.nvim`](https://github.com/neoclide/coc.nvim).
 
 ## Install
@@ -11,7 +11,7 @@ In your vim/neovim, run command:
 
 ## Features
 
-See [`bash-language-server`](https://github.com/mads-hartmann/bash-language-server)
+See [`bash-language-server`](https://github.com/bash-lsp/bash-language-server)
 
 ## Configuration options
 
