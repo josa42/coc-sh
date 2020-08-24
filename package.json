@@ -56,7 +56,7 @@
         "sh.highlightParsingErrors": {
           "description": "(Required :CocRestart)",
           "type": "boolean",
-          "default": true
+          "default": false
         },
         "sh.trace.server": {
           "type": "string",
