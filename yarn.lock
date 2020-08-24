@@ -228,10 +228,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bash-language-server@~1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/bash-language-server/-/bash-language-server-1.16.1.tgz#e3896cd280ceee4d6582a3a976b0b7b0beae8d6e"
-  integrity sha512-IS1Ix7qyRq7GTMXqhHUF44yY89i/1Ucn5KFLimEfDpwU1f3GvbV9VnDpqpG6kedJsl2LigEthSnoVlzaOwgt0g==
+bash-language-server@~1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/bash-language-server/-/bash-language-server-1.17.0.tgz#5178d88bbfa422a58a15c13d328bbdcbbe1f60ff"
+  integrity sha512-t80ktUFL9DPaTO7yydoNYXIDKINweWbFvvUXesltmWj7UaIyepIVRAWUp4+62udJtor1VxVFEAXnsVDA640flw==
   dependencies:
     fuzzy-search "^3.2.1"
     glob "^7.1.6"
@@ -361,8 +361,6 @@ color-convert@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
-  dependencies:
-    color-name "1.1.3"
 
 color-convert@^2.0.1:
   version "2.0.1"

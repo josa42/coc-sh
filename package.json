@@ -97,7 +97,7 @@
     "typescript": "~3.9.5"
   },
   "dependencies": {
-    "bash-language-server": "~1.16.1",
+    "bash-language-server": "~1.17.0",
     "pkg-dir": "^4.2.0",
     "tslib": "^2.0.0"
   }
