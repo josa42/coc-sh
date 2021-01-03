@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import pkgDir from 'pkg-dir'
-import { TransportKind, ExtensionContext, LanguageClient, ServerOptions, commands, workspace, services, LanguageClientOptions } from 'coc.nvim'
+import { ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, commands, services, window, workspace } from 'coc.nvim'
 
 interface ShConfig {
   enable: boolean
@@ -46,7 +46,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       const rootDir = await pkgDir(__dirname)
       const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir, 'package.json'), 'utf-8'))
 
-      workspace.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
+      window.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
     })
   )
 }
