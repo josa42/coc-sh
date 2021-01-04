@@ -52,8 +52,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 }
 
 async function serverBin(): Promise<string> {
-  const rootDir = await pkgDir(__dirname)
-  let bin = path.join(rootDir, 'node_modules', 'bash-language-server', 'bin', 'main.js')
+  let bin = require.resolve('bash-language-server/bin/main.js')
   try {
     bin = fs.realpathSync(bin)
   } catch (e) {
