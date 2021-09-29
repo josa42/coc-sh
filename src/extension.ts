@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import pkgDir from 'pkg-dir'
+import resolve from 'resolve'
 import { ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, commands, services, window, workspace } from 'coc.nvim'
 
 interface ShConfig {
@@ -52,8 +53,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 }
 
 async function serverBin(): Promise<string> {
-  const rootDir = await pkgDir(__dirname)
-  let bin = path.join(rootDir, 'node_modules', 'bash-language-server', 'bin', 'main.js')
+  let bin = resolve.sync('bash-language-server', { basedir: __dirname })
   try {
     bin = fs.realpathSync(bin)
   } catch (e) {

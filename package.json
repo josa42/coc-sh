@@ -92,6 +92,7 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.19",
+    "@types/resolve": "^1.20.1",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "coc-dev-tools": "^0.1.0",
@@ -103,6 +104,7 @@
   "dependencies": {
     "bash-language-server": "~1.17.0",
     "pkg-dir": "^5.0.0",
+    "resolve": "^1.20.0",
     "tslib": "^2.0.3"
   }
 }
