@@ -4,3 +4,4 @@
 /scripts
 *.map
 *.ts
+/.script/**
