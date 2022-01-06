@@ -31,8 +31,7 @@
   },
   "activationEvents": [
     "onLanguage:sh",
-    "onCommand:sh.version",
-    "onCommand:sh.update.bash-language-server"
+    "onCommand:sh.version"
   ],
   "contributes": {
     "configuration": {
@@ -77,10 +76,6 @@
       {
         "command": "sh.version",
         "title": "Print extension version"
-      },
-      {
-        "command": "sh.update.bash-language-server",
-        "title": "Update bash-language-server"
       }
     ],
     "snippets": [
