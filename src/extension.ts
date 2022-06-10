@@ -1,6 +1,5 @@
 import path from 'path'
 import fs from 'fs'
-import { packageDirectory as pkgDir } from 'pkg-dir'
 import { ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, commands, services, window, workspace } from 'coc.nvim'
 
 interface ShConfig {
@@ -43,7 +42,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   context.subscriptions.push(
     services.registLanguageClient(client),
     commands.registerCommand("sh.version", async () => {
-      const rootDir = await pkgDir({ cwd: __dirname })
+      const rootDir = path.join(__dirname, '..')
       const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir, 'package.json'), 'utf-8'))
 
       window.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
