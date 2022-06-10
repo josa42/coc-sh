@@ -10,7 +10,7 @@
     "url": "https://github.com/josa42/coc-sh.git"
   },
   "engines": {
-    "coc": "^0.0.80",
+    "coc": "^0.0.81",
     "node": ">=12"
   },
   "keywords": [
@@ -87,14 +87,14 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^17.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^5.9.0",
+    "@types/node": "^17.0.41",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
     "coc-dev-tools": "^0.1.0",
-    "coc.nvim": "0.0.80",
-    "eslint": "^8.6.0",
+    "coc.nvim": "0.0.81",
+    "eslint": "^8.17.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.7.3"
   },
   "dependencies": {
     "bash-language-server": "3.0.3",
