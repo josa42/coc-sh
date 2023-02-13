@@ -5,9 +5,13 @@ import { ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions,
 interface ShConfig {
   enable: boolean
   commandPath: string
-  highlightParsingErrors: boolean
+  backgroundAnalysisMaxFiles: number
   explainshellEndpoint: string
   globPattern: string
+  includeAllWorkspaceSymbols: boolean
+  logLevel: string
+  shellcheckArguments: string
+  shellcheckPath: string
 }
 
 
@@ -22,15 +26,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const serverOptions: ServerOptions = {
     command: (config.commandPath || await serverBin()),
     args: ['start'],
-    transport: TransportKind.stdio,
-    options: {
-      env: {
-        // => https://github.com/bash-lsp/bash-language-server/blob/master/server/src/config.ts
-        EXPLAINSHELL_ENDPOINT: config.explainshellEndpoint,
-        GLOB_PATTERN: config.globPattern,
-        HIGHLIGHT_PARSING_ERRORS: config.highlightParsingErrors.toString()
-      }
-    }
+    transport: TransportKind.stdio
   }
 
   const clientOptions: LanguageClientOptions = {
@@ -51,7 +47,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 }
 
 async function serverBin(): Promise<string> {
-  let bin = require.resolve('bash-language-server/bin/main.js')
+  let bin = require.resolve('bash-language-server/out/cli.js')
   try {
     bin = fs.realpathSync(bin)
   } catch (e) {

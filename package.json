@@ -1,6 +1,6 @@
 {
   "name": "coc-sh",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "sh extension for coc",
   "author": "josa@gesell.me",
   "license": "MIT",
@@ -46,20 +46,47 @@
         "sh.commandPath": {
           "type": "string"
         },
-        "sh.explainshellEndpoint": {
-          "description": "(Required :CocRestart)",
-          "type": "string",
-          "default": ""
+        "bashIde.backgroundAnalysisMaxFiles": {
+          "type": "number",
+          "default": 500,
+          "description": "Maximum number of files to analyze in the background. Set to 0 to disable background analysis.",
+          "minimum": 0
         },
-        "sh.globPattern": {
-          "description": "(Required :CocRestart)",
+        "bashIde.explainshellEndpoint": {
           "type": "string",
-          "default": ""
+          "default": "",
+          "description": "Configure explainshell server endpoint in order to get hover documentation on flags and options."
         },
-        "sh.highlightParsingErrors": {
-          "description": "(Required :CocRestart)",
+        "bashIde.globPattern": {
+          "type": "string",
+          "default": "**/*@(.sh|.inc|.bash|.command)",
+          "description": "Glob pattern for finding and parsing shell script files in the workspace. Used by the background analysis features across files."
+        },
+        "bashIde.includeAllWorkspaceSymbols": {
           "type": "boolean",
-          "default": false
+          "default": false,
+          "description": "Controls how symbols (e.g. variables and functions) are included and used for completion and documentation. If false (default and recommended), then we only include symbols from sourced files (i.e. using non dynamic statements like 'source file.sh' or '. file.sh'). If true, then all symbols from the workspace are included."
+        },
+        "bashIde.logLevel": {
+          "type": "string",
+          "default": "info",
+          "enum": [
+            "debug",
+            "info",
+            "warning",
+            "error"
+          ],
+          "description": "Controls the log level of the language server."
+        },
+        "bashIde.shellcheckPath": {
+          "type": "string",
+          "default": "shellcheck",
+          "description": "Controls the executable used for ShellCheck linting information. An empty string will disable linting."
+        },
+        "bashIde.shellcheckArguments": {
+          "type": "string",
+          "default": "",
+          "description": "Additional ShellCheck arguments. Note that we already add the following arguments: --shell, --format, --external-sources."
         },
         "sh.trace.server": {
           "type": "string",
@@ -69,7 +96,7 @@
             "messages",
             "verbose"
           ],
-          "description": "Trace level of bash-language-server"
+          "description": "Traces the communication between coc.nvim and the bash-language-server"
         }
       }
     },
@@ -97,7 +124,7 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
-    "bash-language-server": "3.0.3",
+    "bash-language-server": "4.6.2",
     "tslib": "^2.4.0"
   }
 }
