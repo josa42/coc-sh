@@ -10,7 +10,7 @@
     "url": "https://github.com/josa42/coc-sh.git"
   },
   "engines": {
-    "coc": "^0.0.81",
+    "coc": "^0.0.82",
     "node": ">=16"
   },
   "keywords": [
