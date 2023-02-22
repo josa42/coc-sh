@@ -45,7 +45,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       const rootDir = path.join(__dirname, '..')
       const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir, 'package.json'), 'utf-8'))
 
-      window.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
+      window.showInformationMessage(`Version: ${version} [node: ${process.versions.node}]`)
     })
   )
 }
