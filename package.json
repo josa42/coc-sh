@@ -87,17 +87,17 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^17.0.41",
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
+    "@types/node": "^18.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "coc-dev-tools": "^0.1.0",
-    "coc.nvim": "0.0.81",
-    "eslint": "^8.17.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.7.3"
+    "coc.nvim": "0.0.82",
+    "eslint": "^8.34.0",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "bash-language-server": "3.0.3",
-    "tslib": "^2.4.0"
+    "tslib": "^2.5.0"
   }
 }
