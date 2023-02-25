@@ -24,7 +24,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   // TODO add config options:
 
   const serverOptions: ServerOptions = {
-    command: (config.commandPath || await serverBin()),
+    command: (config.commandPath || require.resolve('bash-language-server/out/cli.js')),
     args: ['start'],
     transport: TransportKind.stdio
   }
@@ -41,18 +41,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       const rootDir = path.join(__dirname, '..')
       const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir, 'package.json'), 'utf-8'))
 
-      window.showMessage(`Version: ${version} [node: ${process.versions.node}]`, 'more')
+      window.showInformationMessage(`Version: ${version} [node: ${process.versions.node}]`)
     })
   )
-}
-
-async function serverBin(): Promise<string> {
-  let bin = require.resolve('bash-language-server/out/cli.js')
-  try {
-    bin = fs.realpathSync(bin)
-  } catch (e) {
-    // ignore
-  }
-
-  return bin
 }
