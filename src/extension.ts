@@ -17,20 +17,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
     return
   }
 
-  // TODO add config options:
-
   const serverOptions: ServerOptions = {
     command: (config.commandPath || require.resolve('bash-language-server/out/cli.js')),
     args: ['start'],
-    transport: TransportKind.stdio,
-    options: {
-      env: {
-        // => https://github.com/bash-lsp/bash-language-server/blob/master/server/src/config.ts
-        EXPLAINSHELL_ENDPOINT: config.explainshellEndpoint,
-        GLOB_PATTERN: config.globPattern,
-        HIGHLIGHT_PARSING_ERRORS: config.highlightParsingErrors.toString()
-      }
-    }
+    transport: TransportKind.stdio
   }
 
   const clientOptions: LanguageClientOptions = {
