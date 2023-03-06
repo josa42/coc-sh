@@ -13,8 +13,8 @@ jobs:
         with:
           commit-message: "[auto] Update Settings"
           run-update: |
-            npm update bash-language-server --save
             ./scripts/update-settings.mjs
+            ./scripts/update-readme.mjs
           run-tests: |
             npm ci
             npm run build

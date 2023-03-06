@@ -59,8 +59,7 @@ EOF
 cat > $TMP/config/nvim/coc-settings.json <<EOF
 {
   "codeLens.enable": true,
-  "go.trace.server": "verbose",
-  "go.checkForUpdates": "install"
+  "bashIde.trace.server": "verbose"
 }
 EOF
 

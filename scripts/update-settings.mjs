@@ -5,8 +5,6 @@ import { promises as fs } from 'fs'
 
 run()
 
-const keepKeys = ['sh.enable', 'sh.commandPath']
-
 async function run() {
   const { contributes } = JSON.parse(await get('https://raw.githubusercontent.com/bash-lsp/bash-language-server/main/vscode-client/package.json'))
   const pkg = JSON.parse(await fs.readFile('package.json', 'utf-8'))
