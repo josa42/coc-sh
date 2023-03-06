@@ -43,31 +43,6 @@
         },
         "sh.commandPath": {
           "type": "string"
-        },
-        "sh.explainshellEndpoint": {
-          "description": "(Required :CocRestart)",
-          "type": "string",
-          "default": ""
-        },
-        "sh.globPattern": {
-          "description": "(Required :CocRestart)",
-          "type": "string",
-          "default": ""
-        },
-        "sh.highlightParsingErrors": {
-          "description": "(Required :CocRestart)",
-          "type": "boolean",
-          "default": false
-        },
-        "sh.trace.server": {
-          "type": "string",
-          "default": "off",
-          "enum": [
-            "off",
-            "messages",
-            "verbose"
-          ],
-          "description": "Trace level of bash-language-server"
         }
       }
     },
