@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-import https from 'https'
 import { promises as fs } from 'fs'
 
 run()
 
 async function run() {
-  const { contributes } = JSON.parse(await get('https://raw.githubusercontent.com/bash-lsp/bash-language-server/main/vscode-client/package.json'))
+  const { contributes } = await (await fetch('https://raw.githubusercontent.com/bash-lsp/bash-language-server/main/vscode-client/package.json')).json()
   const pkg = JSON.parse(await fs.readFile('package.json', 'utf-8'))
 
   const entries = [
@@ -18,17 +17,4 @@ async function run() {
   pkg.contributes.configuration.properties = Object.fromEntries(entries)
 
   fs.writeFile('package.json', JSON.stringify(pkg, null, '  ') + '\n')
-}
-
-async function get(url) {
-  return new Promise((resolve, reject) => {
-    https
-      .get(url, (resp) => {
-        let data = ""
-
-        resp.on("data", (chunk) => (data += chunk))
-        resp.on("end", () => resolve(data))
-      })
-      .on("error", (err) => reject(err))
-  })
 }
